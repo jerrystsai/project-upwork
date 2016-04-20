@@ -1,0 +1,74 @@
+(lp0
+(dp1
+Valias
+p2
+Vaustralasia
+p3
+sVtitle
+p4
+VAustralasia
+p5
+sa(dp6
+Valias
+p7
+Veast-asia
+p8
+sVtitle
+p9
+VEast Asia
+p10
+sa(dp11
+Valias
+p12
+Veastern-europe
+p13
+sVtitle
+p14
+VEastern Europe
+p15
+sa(dp16
+Valias
+p17
+Vlatin-america
+p18
+sVtitle
+p19
+VLatin America
+p20
+sa(dp21
+Valias
+p22
+Vmisc
+p23
+sVtitle
+p24
+VMisc
+p25
+sa(dp26
+Valias
+p27
+Vnorth-america
+p28
+sVtitle
+p29
+VNorth America
+p30
+sa(dp31
+Valias
+p32
+Vsouth-asia
+p33
+sVtitle
+p34
+VSouth Asia
+p35
+sa(dp36
+Valias
+p37
+Vwestern-europe
+p38
+sVtitle
+p39
+VWestern Europe
+p40
+sa.
