@@ -1,0 +1,33 @@
+Unique identifier for client
+
+
+Name, Last Name Initial
+Pay rate
+
+Title:
+Data Science & Engineering Adviser - End-to-End Analytics
+
+Skills:
+Data Science
+Data Analytics
+Python
+Java
+R
+Statistics
+Microsoft Excel
+MySQL Administration
+Neo4j
+
+• https://www.upwork.com/api/ - main entry point
+
+
+I've advised or managed a large variety of data science and data engineering projects (and the occasional web development project). I will work with you to define, implement and manage your data analysis and data management projects. Let me help you make your analytics project a success!  In addition to managing projects, I've extensively used the following tools as a hands-on contributor:  Analysis: R (statistics), Python (data munging), Java+Scala (machine learning / big data), VB.NET/Excel (financial modelling) ** Apache Hadoop, Hive, HBase, Spark (big data ecosystem) ** Kafka, Spark Streaming (streaming data) ** MongoDB, Neo4j (NoSQL) + MySQL, Monetdb, Redshift (SQL) ** Gephi, GraphX (networks/social graph processing) ** Weka, MLlib (machine learning) Visualization: Tableau (rapid dashboarding), Shiny (R package for interactive statistical dashboards) Environments: Linux, Windows, and Mac (least experience) Productivity: Git (source code control) Web Applications: Play 2 Framework (modern Java/Scala-based, reactive websites) less
+
+Work History and Feedback
+  project name
+  number of hours
+  pay rate per hour
+  actual earned may be greater or lesser
+ then number of hours times pay rate
+
+ Fixed price

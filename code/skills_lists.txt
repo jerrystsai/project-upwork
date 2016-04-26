@@ -1,0 +1,70 @@
+SKILLS LISTS
+
+DATA SCIENCE/DATA ENGINEERING
+skills_list = \
+[ \
+u'apache-hive', \
+u'apache-kafka', \
+u'apache-spark', \
+u'big-data', \
+u'cassandra', \
+u'data-analysis', \
+u'data-mining', \
+u'data-modeling', \
+u'data-science', \
+u'data-visualization', \
+u'hadoop', \
+u'hbase', \
+u'ibm-spss', \
+u'java', \
+u'machine-learning', \
+u'mapreduce', \
+u'matlab', \
+u'mongodb', \
+u'mysql', \
+u'nosql', \
+u'pig', \
+u'predictive-analytics', \
+u'python', \
+u'python-numpy', \
+u'python-scipy', \
+u'r', \
+u'sas', \
+u'scala', \
+u'spring-framework', \
+u'sql', \
+u'statistics', \
+u'tableau' \
+]
+
+FULL STACK
+skills_list = \
+[ \
+u'ajax', \
+u'angularjs', \
+u'bootstrap', \
+u'css', \
+u'css3', \
+u'c#', \
+u'django-framework', \
+u'html', \
+u'html5', \
+u'javascript', \
+u'jquery', \
+u'laravel-framework', \
+u'node.js', \
+u'php', \
+u'postgresql', \
+u'ruby', \
+u'ruby-on-rails', \
+u'twitter-bootstrap', \
+u'wordpress' \
+]
+
+# These full stack skills already scraped by:
+#     scrape_by_skills_da.py
+# u'java', \
+# u'mongodb', \
+# u'mysql', \
+# u'python', \
+# u'sql', \

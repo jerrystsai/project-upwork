@@ -1,0 +1,59 @@
+42:5a:b7:ef:89:83:89:b2:13:01:43:b6:cf:f9:e6:14:6e:53:41:df
+
+EC2 Dashboard
+Launch Instance
+Amazon Linux AMI [2016.03.0 (PV)]
+
+m3.medium, 1 core, 3.75 GiB memory, 1 x 4 (SSD) instance memory
+       m3.large, 2 cores, 7.5 gigabytes memory, instance storage 1 x 32 SSD
+
+Public IP: 54.67.2.170
+
+ssh -i ../upwork_project.pem ubuntu@54.67.2.170
+
+The authenticity of host '54.183.254.96 (54.183.254.96)' can't be established.
+RSA key fingerprint is b6:50:0a:b2:5a:89:40:bd:82:ba:ab:b2:e4:2a:e4:96.
+
+See lecture_notes.txt in day31 for help.
+
+Install conda
+THEN: pip install python-upwork
+
+See history:
+1  wget https://3230d63b5fc54e62148e-c95ac804525aac4b6dba79b00b39d1d3.ssl.cf1.rackcdn.com/Anaconda2-4.0.0-Linux-x86_64.sh
+2  bash Anaconda2-4.0.0-Linux-x86_64.sh
+3  which python
+4  df -h
+5  python
+6  pip install python-upwork
+7  sudo pip install python-upwork
+8  ipython
+9  conda install jupyter
+10  ls
+11  conda
+12  python
+13  ls
+14  ls -a
+15  vim .bashrc
+16  vim .bash_profile
+17  vim .bash_rc .bash_profile
+18  vim .bashrc .bash_profile
+19  source .bashrc
+20  ipython
+21  ls
+22  sudo pip install python-upwork
+23  ipython
+24  history
+25  pip freeze
+26  pip install python-upwork
+27  ipython
+28  pip freeze
+29  history
+30  ipython
+31  which pip
+32  echo $PATH
+33  cd anaconda2/bin/pip
+34  cd anaconda2/bin/
+35  ls
+36  vim pip
+37  history

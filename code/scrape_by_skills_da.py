@@ -1,5 +1,5 @@
 # author: Jerry Tsai
-# program scrape_skills.py
+# program scrape_skills_da.py
 # creation date: 2016-04-21
 # version 1.0
 #
@@ -9,14 +9,25 @@
 #
 
 # @RateLimited(0.462)  # 0.462 per second or essentially every 2.16 seconds or so
+import time
 import json
+import upwork
+import urllib2
 from web_based_app import web_based_app, RateLimited
 
 @RateLimited(0.462)
 def GrabProviders(counter):
-    provider_list = client.provider_v2.search_providers(data=the_query, \
-        page_offset=counter, page_size=page_size)
-
+    while True:
+        try:
+            provider_list = client.provider_v2.search_providers(data=the_query, \
+                page_offset=counter, page_size=page_size)
+            break
+        except upwork.exceptions.HTTP403ForbiddenError:
+            print 'upwork.exceptions.HTTP403ForbiddenError at counter = ', counter
+            time.sleep(3)
+        except urllib2.HTTPError:
+            print 'urllib2.HTTPError at counter = ', counter
+            time.sleep(3)
     return provider_list
 
 skills_list = \
@@ -59,6 +70,7 @@ client = web_based_app()
 
 page_size = 100
 for skill in skills_list:
+    print "Skill = ", skill
     the_query = {'skills': skill}
     outfile = 'data/' + skill + '.txt'
 
@@ -79,3 +91,4 @@ for skill in skills_list:
                 if len(provider_list) == 0:
                     break
             counter += 100
+    print

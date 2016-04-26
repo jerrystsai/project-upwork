@@ -1,0 +1,93 @@
+fokus
+cd code
+
+# ssh -i upwork_project.pem ubuntu@54.153.123.83
+ssh -i .ssh/upwork_project.pem ubuntu@54.153.123.83
+
+sudo apt-get install awscli
+
+mkdir code
+# upload
+scp -i .ssh/upwork_project.pem *.* ubuntu@54.153.123.83:~/.
+scp -i .ssh/upwork_project.pem code/*.* ubuntu@54.153.123.83:~/code/.
+scp -i .ssh/upwork_project.pem code/scrape_by_skills_da.py ubuntu@54.153.123.83:~/code/scrape_by_skills_da.py
+scp -i .ssh/upwork_project.pem code/scrape_by_skills_fs.py ubuntu@54.153.123.83:~/code/scrape_by_skills_fs.py
+
+# download
+scp -i .ssh/upwork_project.pem ubuntu@54.153.123.83:~/data/data_scientist2.txt data/data_scientist2.txt
+scp -i .ssh/upwork_project.pem ubuntu@54.153.123.83:~/data/full_stack.txt data/full_stack.txt
+scp -i .ssh/upwork_project.pem ubuntu@54.153.123.83:~/data/big_data.txt data/big_data.txt
+scp -i .ssh/upwork_project.pem ubuntu@54.153.123.83:~/data/data_engineer.txt data/data_engineer.txt
+scp -i .ssh/upwork_project.pem ubuntu@54.153.123.83:~/data/data_science.txt data/data_science.txt
+
+scp -i .ssh/upwork_project.pem ubuntu@54.153.123.83:~/data/detailed_profiles_da_0.txt data/detailed_profiles_da_0.txt
+
+scp -i .ssh/upwork_project.pem ubuntu@54.153.123.83:~/code/scrape_by_skills_fs.py code/scrape_by_skills_fs.py
+
+
+
+scp -i ../.ssh/my_secret_key.pem <filename> <username@IP_address_of_server>:.
+
+sudo apt-get install python-pip
+sudo apt-get install python-pip --fix-missing
+sudo pip install python-upwork
+
+aws configure
+AKIAIZGKJLTI6FVWMS2A
+EwLJReiDomxoM13W8kDQ7hGdrpnrcuSmwMEOvRLK
+us-west-1
+
+sudo apt-get install mongodb-server
+
+ec2-run-instances ami-05355a6c -t m1.large -g [SECURITY-GROUP] -k [KEY-PAIR] -b "/dev/xvdf=:200:false:io1:1000" -b "/dev/xvdg=:25:false:io1:250" -b "/dev/xvdh=:10:false:io1:100" --ebs-optimized true
+
+import site; site.getsitepackages()
+
+# vi keys.json
+python
+
+import json
+import upwork
+import os
+
+with open('keys.json') as data_file:
+    keys = json.load(data_file)
+
+client = upwork.Client(keys['public_key'], keys['secret_key'])
+
+verifier = raw_input(
+        'Please enter the verification code you get '
+        'following this link:\n{0}\n\n> '.format(
+            client.auth.get_authorize_url()))
+
+oauth_access_token, oauth_access_token_secret = \
+    client.auth.get_access_token(verifier)
+
+client = upwork.Client(keys['public_key'], keys['secret_key'],
+                      oauth_access_token=oauth_access_token,
+                      oauth_access_token_secret=oauth_access_token_secret)
+
+
+LOTS OF EXAMPLES
+scp -i ../upwork_project.pem ubuntu@54.153.123.83:/home/ubuntu/pk.pkl .
+scp -i ../.ssh/upwork_project.pem ubuntu@54.153.123.83:/home/ubuntu/code/*.pkl .
+
+scp -i .ssh/upwork_project.pem ubuntu@54.153.123.83:~/data/javascript.txt data/javascript.txt
+scp -i .ssh/upwork_project.pem ubuntu@54.153.123.83:~/data/jquery.txt data/jquery.txt
+scp -i .ssh/upwork_project.pem ubuntu@54.153.123.83:~/data/laravel-framework.txt data/laravel-framework.txt
+scp -i .ssh/upwork_project.pem ubuntu@54.153.123.83:~/data/node.js.txt data/node.js.txt
+scp -i .ssh/upwork_project.pem ubuntu@54.153.123.83:~/data/php.txt data/php.txt
+scp -i .ssh/upwork_project.pem ubuntu@54.153.123.83:~/data/postgresql.txt data/postgresql.txt
+scp -i .ssh/upwork_project.pem ubuntu@54.153.123.83:~/data/ruby-on-rails.txt data/ruby-on-rails.txt
+scp -i .ssh/upwork_project.pem ubuntu@54.153.123.83:~/data/ruby.txt data/ruby.txt
+scp -i .ssh/upwork_project.pem ubuntu@54.153.123.83:~/data/twitter-bootstrap.txt data/twitter-bootstrap.txt
+scp -i .ssh/upwork_project.pem ubuntu@54.153.123.83:~/data/wordpress.txt data/wordpress.txt
+
+
+scp -i .ssh/upwork_project.pem code/scrape_by_ids.py ubuntu@54.153.123.83:~/code/scrape_by_ids.py
+
+scp -i .ssh/upwork_project.pem ubuntu@54.153.123.83:~/code/scrape_by_ids.py code/scrape_by_ids.py
+
+scp -i .ssh/upwork_project.pem code/scrape_by_skills_fs.py ubuntu@54.153.123.83:~/code/scrape_by_skills_fs.py
+
+scp -i .ssh/upwork_project.pem data/profiles_by_skill/ids_da.txt ubuntu@54.153.123.83:~/data/ids_da.txt

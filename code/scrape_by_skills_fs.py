@@ -1,6 +1,6 @@
 # author: Jerry Tsai
-# program scrape_skills.py
-# creation date: 2016-04-21
+# program scrape_skills_fs.py
+# creation date: 2016-04-23
 # version 1.0
 #
 # PURPOSE:
@@ -10,55 +10,63 @@
 
 # @RateLimited(0.462)  # 0.462 per second or essentially every 2.16 seconds or so
 import json
+import time
+import upwork
+import urllib2
 from web_based_app import web_based_app, RateLimited
 
 @RateLimited(0.462)
 def GrabProviders(counter):
-    provider_list = client.provider_v2.search_providers(data=the_query, \
-        page_offset=counter, page_size=page_size)
-
+    while True:
+        try:
+            provider_list = client.provider_v2.search_providers(data=the_query, \
+                page_offset=counter, page_size=page_size)
+            break
+        except upwork.exceptions.HTTP403ForbiddenError:
+            print 'upwork.exceptions.HTTP403ForbiddenError at counter = ', counter
+            time.sleep(3)
+        except urllib2.HTTPError:
+            print 'urllib2.HTTPError at counter = ', counter
+            time.sleep(3)
     return provider_list
 
 skills_list = \
 [ \
-u'apache-hive', \
-u'apache-kafka', \
-u'apache-spark', \
-u'big-data', \
-u'cassandra', \
-u'data-analysis', \
-u'data-mining', \
-u'data-modeling', \
-u'data-science', \
-u'data-visualization', \
-u'hadoop', \
-u'hbase', \
-u'ibm-spss', \
-u'java', \
-u'machine-learning', \
-u'mapreduce', \
-u'matlab', \
-u'mongodb', \
-u'mysql', \
-u'nosql', \
-u'pig', \
-u'predictive-analytics', \
-u'python', \
-u'python-numpy', \
-u'python-scipy', \
-u'r', \
-u'sas', \
-u'scala', \
-u'spring-framework', \
-u'sql', \
-u'statistics', \
-u'tableau' \
+u'ajax', \
+u'angularjs', \
+u'bootstrap', \
+u'css', \
+u'css3', \
+u'c#', \
+u'django-framework', \
+u'html', \
+u'html5', \
+u'javascript', \
+u'jquery', \
+u'laravel-framework', \
+u'node.js', \
+u'php', \
+u'postgresql', \
+u'ruby', \
+u'ruby-on-rails', \
+u'twitter-bootstrap', \
+u'wordpress' \
 ]
+
+# These full stack skills already scraped by:
+#     scrape_by_skills_da.py
+# u'java', \
+# u'mongodb', \
+# u'mysql', \
+# u'python', \
+# u'sql', \
+
 
 client = web_based_app()
 
 page_size = 100
 for skill in skills_list:
+    print "Skill = ", skill
     the_query = {'skills': skill}
     outfile = 'data/' + skill + '.txt'
 
@@ -79,3 +87,4 @@ for skill in skills_list:
                 if len(provider_list) == 0:
                     break
             counter += 100
+    print
