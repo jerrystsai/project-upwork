@@ -1,3 +1,11 @@
+# author: Jerry Tsai
+# program get_ids_set.py
+# creation date: 2016-04-23
+# version 1.0
+#
+# PURPOSE:
+#
+
 import os
 import json
 import time

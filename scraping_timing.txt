@@ -1,0 +1,58 @@
+around Sunday at 9-ish I was at 8715
+
+Sun Apr 24 15:35 scrape_by_ids.py
+Wed Apr 27 13:41:50 UTC 2016
+
+103715
+  8715
+------
+ 95000
+
+ So in about 72-2 = 70 hours got 95,000 records
+   That's about 1358 records per hour
+   That's about 32592 per day, or 81.5% of what is possible
+
+   So 0.462, the current retrieval rate, could be divided by 0.815 to
+     get closer to 40000 per day: 0.462/0.815 = 0.567
+
+   So it would have been better if I set the RateLimited rate to something
+     closer to 0.55. (Calcs not shown: I would have finished near Fri Apr 29 10am)
+
+  Meanwhile at 1358 records per hour, I have 209,788 profile ids to go through.
+  I started at 8715 on April 24 15:35 UTC, which is 8:35am PDT.
+  So from that time point I had 201,703 profiles to go through
+    this should take 148.5 hours, or 6 days, 4.5 hours
+  6 days, 4.5 hours from Sunday 8:35am PDT will be April 30 Sat 1:00pm PDT
+
+  I will set the jobs retrieval rate at 0.55 and monitor
+
+==========
+JOBS ESTIMATE
+  At the moment, having gone through 88,715 profiles, I found 77,120 jobs.
+    With 209,788 profile ids, I expect then to get 182,369 jobs
+
+  At an optimistic rate of 38,000 per day, it will take me 4.8 days to get_provider
+    all the jobs, or 4 days, 19 hours and 10 minutes, essentially 5 days.
+
+  If I start retrieving at 10:30am this Wednesday morning, I will be done
+  Monday at 5:40am.
+
+  Who knows how long it will take to get the profiles of candidate who
+    didn't get the jobs
+
+  Figured out job ids are not unique, about 92% of them are.
+  So instead of 77,120, I have 71,338. Makes it a little faster.
+
+==========
+FAILED CANDIDATES ESTIMATE
+1) Need to get unique ids of failed candidates
+2) Need to diff them from the set of profiles I already have
+
+==========
+SANITY
+I will only do 60% of the data: 128175/209788
+Then I will only obtain about 113,068 jobs, which will take me 3 days
+  Then I will get my "final" jobs data set on Saturday at 10:30am
+
+Then I will hopefully be able to start grabbing my failed candidates and finish
+up.

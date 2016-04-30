@@ -1,0 +1,99 @@
+=====
+
+scrape_by_q.py [iterated over the query]
+  --> data/skills_id/full_stack.txt
+  --> data/skills_id/data_scientist.txt
+  --> data/skills_id/data_science.txt
+  --> data/skills_id/big_data.txt
+  --> data/skills_id/data_engineer.txt
+
+=====
+
+data/skills_id/full_stack.txt —> most_common —> skills_lists.txt
+data/skills_id/data_scientist.txt —> most_common —> skills_lists.txt
+data/skills_id/data_science.txt —> most_common —> skills_lists.txt
+data/skills_id/big_data.txt —> most_common —> skills_lists.txt
+data/skills_id/data_engineer.txt —> most_common —> skills_lists.txt
+
+=====
+
+skills_lists.txt
+cut and pasted into:
+    scrape_by_skills_da.py
+    scrape_by_skills_fs.py
+
+scrape_by_skills_da.py --> 'data/profiles_by_skill/' + skill + '.txt', list of many skills, from apache-hive to tableau
+
+=====
+
+scrape_by_skills_fs.py --> 'data/profiles_by_skill/' + skill + '.txt', list of many skills, from ajax to wordpress
+
+=====
+
+ 'data/' + skill + '.txt', list of many skills, from apache-hive to tableau -->
+     get_ids_set.py --> data/profiles_by_skill/ids_da.txt
+
+=====
+
+data/ids_da.txt --> scrape_by_ids.py --> data/detailed_profiles_da[_#].txt
+
+=====
+
+Submitted on command line:
+  cat detailed_profiles_da_0_8715.txt detailed_profiles_da_0.txt detailed_profiles_da_1.txt detailed_profiles_da_2.txt detailed_profiles_da_3.txt detailed_profiles_da_4.txt detailed_profiles_da_5.txt > detailed_profiles_da_all.txt
+
+detailed_profiles_da_all.txt, ideally, however, I had to cut this short
+  and use only #s 0_8715, _0, and _1, concatenating them together
+  to create detailed_profiles_da.txt. This represents ~61% of detailed_profiles_da_all.txt
+
+  detailed_profiles_da[_#].txt --> get_jobs.py --> data/jobs_ids.txt
+
+=====
+
+Submitted on command line:
+  sort jobs_ids.txt | uniq -u > jobs_ids_unique.txt
+
+jobs_da_#.txt --> get_job_candidates.py --> data/candidates_da.txt
+                                            data/candidates_da_0_to_5.txt
+=====
+
+data/candidates_da.txt --> scrape_by_ids2.py --> data/detailed_profiles_da[_#].txt
+data/candidates_da_0_to_5.txt
+
+=====
+
+
+============
+TO DO LIST
+
+DONE, WAITING API KEY, SPIN INSTANCE
+  > UPLOAD jobs_ids_unique.txt
+  > TEST program
+  # wrote scraper, given jobs_ids, scrape the detailed jobs
+
+DONE, WAITING FOR ONE OF THE SCRAPERS TO FINISH
+  # wrote scraper, given detailed jobs, return profile_ids
+
+CAN POSTPONE
+# #4: assuming I have jobs and the people who applied for those jobs, figure out how to combine
+    into rectangular data set. Put data into R-readable format (CSV)
+# #4: Write R program
+    for GLLM link function = logit, nested repeated
+    employers put out multiple jobs, each job has multiple applicants.
+    Multiple people can also work on the same job
+
+# #1: Get detailed profiled ids and get wage data: hourly rate and length of time.
+      Examine distribution of wages over time for short and long periods
+
+      Run gradient boosted regression. Optimize parameters. Random forest.
+      Cross-validate. See if you can employ pipeline.
+
+  #1 and 2: Get wage for set of skills. "Brute force"
+      over (iterate, changing design matrix in one place)
+      to get all , make sure to return most profitable, but return all,
+      so you can explore
+
+  #3 Output to R-readable format, set of skills for each profile
+  #3 Market-basket analysis in R
+
+# 5: Make Flask app using #1, #2, #3 ?!!!!

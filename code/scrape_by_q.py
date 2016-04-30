@@ -1,5 +1,5 @@
 # author: Jerry Tsai
-# program scrape_skills.py
+# program scrape_by_q.py
 # creation date: 2016-04-20
 # version 1.0
 #

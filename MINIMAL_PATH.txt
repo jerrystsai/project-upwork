@@ -1,17 +1,26 @@
 fokus
 cd code
 
+54.67.10.44
+
+LOGGING INTO EC2 INSTANCE
 # ssh -i upwork_project.pem ubuntu@54.153.123.83
 ssh -i .ssh/upwork_project.pem ubuntu@54.153.123.83
+MILES:
+ssh -i .ssh/upwork_project.pem ubuntu@54.67.10.44
 
-sudo apt-get install awscli
 
-mkdir code
+UPLOADING AND DOWNLOADING
 # upload
 scp -i .ssh/upwork_project.pem *.* ubuntu@54.153.123.83:~/.
 scp -i .ssh/upwork_project.pem code/*.* ubuntu@54.153.123.83:~/code/.
 scp -i .ssh/upwork_project.pem code/scrape_by_skills_da.py ubuntu@54.153.123.83:~/code/scrape_by_skills_da.py
 scp -i .ssh/upwork_project.pem code/scrape_by_skills_fs.py ubuntu@54.153.123.83:~/code/scrape_by_skills_fs.py
+
+MILES:
+scp -i .ssh/upwork_project.pem *.* ubuntu@54.67.10.44:~/.
+scp -i .ssh/upwork_project.pem code/*.* ubuntu@54.67.10.44:~/code/.
+scp -i .ssh/upwork_project.pem data/jobs_ids_unique.txt ubuntu@54.67.10.44:~/data/jobs_ids_unique.txt
 
 # download
 scp -i .ssh/upwork_project.pem ubuntu@54.153.123.83:~/data/data_scientist2.txt data/data_scientist2.txt
@@ -22,19 +31,20 @@ scp -i .ssh/upwork_project.pem ubuntu@54.153.123.83:~/data/data_science.txt data
 
 scp -i .ssh/upwork_project.pem ubuntu@54.153.123.83:~/data/detailed_profiles_da_0.txt data/detailed_profiles_da_0.txt
 
-scp -i .ssh/upwork_project.pem ubuntu@54.153.123.83:~/code/scrape_by_skills_fs.py code/scrape_by_skills_fs.py
-
+scp -i .ssh/upwork_project.pem ubuntu@54.153.123.83:~/code/scrape_by_ids.py code/scrape_by_ids.py
 
 
 scp -i ../.ssh/my_secret_key.pem <filename> <username@IP_address_of_server>:.
 
+sudo apt-get install awscli
 sudo apt-get install python-pip
 sudo apt-get install python-pip --fix-missing
 sudo pip install python-upwork
 
+sort data/jobs_ids.txt | uniq -c | sort -nr > check.txt
+sort jobs_ids.txt | uniq -u > jobs_ids_unique.txt
+
 aws configure
-AKIAIZGKJLTI6FVWMS2A
-EwLJReiDomxoM13W8kDQ7hGdrpnrcuSmwMEOvRLK
 us-west-1
 
 sudo apt-get install mongodb-server

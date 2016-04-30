@@ -1,3 +1,11 @@
+# author: Jerry Tsai
+# program most_common.py
+# creation date: 2016-04-22
+# version 1.0
+#
+# PURPOSE:
+#
+
 fs_profiles = json_read('../data/full_stack.txt')
 fs_profiles['title'].value_counts()
 

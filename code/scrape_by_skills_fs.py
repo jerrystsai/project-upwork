@@ -4,7 +4,7 @@
 # version 1.0
 #
 # PURPOSE:
-# Given skills of data scientists / data engineers, find all
+# Given skills of full stack web developers, return all
 #   profiles that have at least one of these skills
 #
 

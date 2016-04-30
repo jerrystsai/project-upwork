@@ -1,6 +1,6 @@
 # author: Jerry Tsai
-# program scrape_by_ids.py
-# creation date: 2016-04-24
+# program scrape_by_ids_2.py
+# creation date: 2016-04-30
 # version 1.0
 #
 # PURPOSE: Given a text file of freelancers' IDs (aka "ciphertext"),
@@ -35,11 +35,11 @@ from web_based_app import web_based_app, RateLimited
 @RateLimited(0.462)
 def GrabProfile(counter, profile_str):
     try_number = 0
-    while try_number < 5:
+    success = False
+    while try_number < 4:
         try_number += 1
         try:
             profile = client.provider.get_provider(profile_str)
-            break
         except upwork.exceptions.HTTP403ForbiddenError:
             print 'upwork.exceptions.HTTP403ForbiddenError at counter = ', counter, ' Try #: ', try_number
             time.sleep(3)
@@ -49,15 +49,18 @@ def GrabProfile(counter, profile_str):
         except urllib3.exceptions.MaxRetryError:
             print 'urllib3.exceptions.MaxRetryError at counter = ', counter, 'Try #: ', try_number
             time.sleep(3)
+        else:
+            success = True
+            break
 
-    if try_number < 5:
+    if success == True:
         return profile
     else:
         return None
 
 client = web_based_app()
 
-infile = 'data/profiles_by_skill/ids_da.txt'
+infile = 'data/candidates_da_0_to_5.txt'
 
 ids_list = list()
 with open(infile) as f:
@@ -65,11 +68,12 @@ with open(infile) as f:
         ids_list.append(line.strip())
 
 step = 40000
-outroot = 'data/detailed_profiles_da'
+outroot = 'data/detailed_profiles_da_cand'
 for index, base in enumerate(range(0, 240000, step)):
-    print "Base = {}".format(base)
+    print "Base = {} {}".format(base, str(datetime.now()))
     outfile = outroot + '_' + str(index) + '.txt'
-    with open(outfile, 'w') as outf:
+    out_notfound_file = outroot + '_notfound_' + str(index) + '.txt'
+    with open(outfile, 'w') as outf, open(out_notfound_file, 'w') as outnff:
         for counter, _id in enumerate(ids_list[base:base+step]):
             if counter % 1000 == 0:
                 print 'Number of records = {}'.format(base+counter)
@@ -77,5 +81,6 @@ for index, base in enumerate(range(0, 240000, step)):
             if profile is not None:
                 outf.write(json.dumps(profile)+'\n')
             else:
+                outnff.write(json.dumps(_id)+'\n')
                 print 'Not found: ID #: {}'.format(_id)
     print
