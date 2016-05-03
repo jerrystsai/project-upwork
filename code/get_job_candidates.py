@@ -66,6 +66,7 @@ def get_candidates_list(df):
 
     job_cats_array = np.array(job_cats)
     jobs_da = jobs_df[job_cats_array == u'Data Science & Analytics']
+    print 'Number of data sciences jobs: {}'.format(len(jobs_da))
 
     candidate_list = list()
     for index, candidates in enumerate(jobs_da['candidates']):
@@ -111,12 +112,15 @@ if __name__ == '__main__':
 
     jobs_profiles_list = \
     [ \
+    'data/jobs_da_m1.txt', \
     'data/jobs_da_0.txt', \
     'data/jobs_da_1.txt', \
     'data/jobs_da_2.txt', \
     'data/jobs_da_3.txt', \
     'data/jobs_da_4.txt', \
     'data/jobs_da_5.txt', \
+    'data/jobs_da_6.txt', \
+    'data/jobs_da_7.txt', \
     ]
 
     all_jobs_associated_ids = set()
@@ -130,7 +134,7 @@ if __name__ == '__main__':
     not_yet_scraped_ids = all_jobs_associated_ids.difference(ids_set)
     print 'Number of ids not yet scraped: {}'.format(len(not_yet_scraped_ids))
 
-    outfile = 'data/candidates_da_0_to_5.txt'
+    outfile = 'data/candidates_da.txt'
 
     with open(outfile, 'w') as f:
         for id_ in not_yet_scraped_ids:

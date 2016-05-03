@@ -54,11 +54,15 @@ Submitted on command line:
   sort jobs_ids.txt | uniq -u > jobs_ids_unique.txt
 
 jobs_da_#.txt --> get_job_candidates.py --> data/candidates_da.txt
-                                            data/candidates_da_0_to_5.txt
+
 =====
 
-data/candidates_da.txt --> scrape_by_ids2.py --> data/detailed_profiles_da[_#].txt
-data/candidates_da_0_to_5.txt
+data/candidates_da.txt --> scrape_by_ids2.py --> data/detailed_profiles_da_cand_#.txt
+
+Submitted on command line:
+  cat detailed_profiles_da_cand_0.txt >> detailed_profiles_da_all.txt
+  wc -l detailed_profiles_da_all.txt
+    218656 detailed_profiles_da_all.txt
 
 =====
 

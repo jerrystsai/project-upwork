@@ -1,5 +1,5 @@
 # author: Jerry Tsai
-# program scrape_by_ids_2.py
+# program: scrape_by_ids_2.py
 # creation date: 2016-04-30
 # version 1.0
 #
@@ -11,6 +11,7 @@
 import os
 import json
 import time
+from datetime import datetime
 import upwork
 import urllib2
 import urllib3
@@ -60,16 +61,16 @@ def GrabProfile(counter, profile_str):
 
 client = web_based_app()
 
-infile = 'data/candidates_da_0_to_5.txt'
+infile = 'data/candidates_da.txt'
 
 ids_list = list()
 with open(infile) as f:
     for line in f:
         ids_list.append(line.strip())
 
-step = 40000
+step = 10000
 outroot = 'data/detailed_profiles_da_cand'
-for index, base in enumerate(range(0, 240000, step)):
+for index, base in enumerate(range(0, 10000, step)):
     print "Base = {} {}".format(base, str(datetime.now()))
     outfile = outroot + '_' + str(index) + '.txt'
     out_notfound_file = outroot + '_notfound_' + str(index) + '.txt'
