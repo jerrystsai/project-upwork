@@ -65,6 +65,8 @@ Submitted on command line:
     218656 detailed_profiles_da_all.txt
 
 =====
+Submitted on command line:
+  cat jobs_da_m1.txt jobs_da_0.txt jobs_da_1.txt jobs_da_2.txt jobs_da_3.txt jobs_da_4.txt jobs_da_5.txt jobs_da_6.txt jobs_da_7.txt > jobs_da_all.txt
 
 
 ============
@@ -82,7 +84,7 @@ CAN POSTPONE
 # #4: assuming I have jobs and the people who applied for those jobs, figure out how to combine
     into rectangular data set. Put data into R-readable format (CSV)
 # #4: Write R program
-    for GLLM link function = logit, nested repeated
+    for GLMM link function = logit, nested repeated
     employers put out multiple jobs, each job has multiple applicants.
     Multiple people can also work on the same job
 

@@ -34,6 +34,7 @@ scp -i .ssh/upwork_project.pem ubuntu@54.153.123.83:~/data/data_science.txt data
 
 scp -i .ssh/upwork_project.pem ubuntu@54.153.123.83:~/data/detailed_profiles_da_0.txt data/detailed_profiles_da_0.txt
 scp -i .ssh/upwork_project.pem ubuntu@54.153.123.83:~/data/detailed_profiles_da_1.txt data/detailed_profiles_da_1.txt
+scp -i .ssh/upwork_project.pem ubuntu@54.153.123.83:~/data/detailed_profiles_da_cand*.txt data/.
 
 scp -i .ssh/upwork_project.pem ubuntu@54.153.123.83:~/code/scrape_by_ids.py code/scrape_by_ids.py
 
